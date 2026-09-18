@@ -1641,3 +1641,21 @@ SELECT * FROM POST [42102-240]
 2026-09-18 12:23:33.075448+09:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "POST_COMMENT" not found; SQL statement:
 SELECT * FROM POST_COMMENT [42102-240]
+2026-09-18 13:51:25.485497+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]
+2026-09-18 13:52:32.502982+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]
+2026-09-18 13:52:38.731649+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]
+2026-09-18 13:58:20.819540+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]
+2026-09-18 13:58:28.047418+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]
+2026-09-18 13:58:32.867970+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POST_MEMBER"; expected "PREPARE"; SQL statement:
+POST_MEMBER [42001-240]

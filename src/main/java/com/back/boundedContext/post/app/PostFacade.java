@@ -38,6 +38,9 @@ public class PostFacade {
     @Transactional
     public PostMember syncMember(MemberDto member) {
         PostMember _member = new PostMember(
+                member.getId(),
+                member.getCreateDate(),
+                member.getModifyDate(),
                 member.getUsername(),
                 "",
                 member.getNickname()
