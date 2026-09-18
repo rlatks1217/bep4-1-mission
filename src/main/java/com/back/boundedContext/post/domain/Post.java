@@ -16,10 +16,10 @@ import static jakarta.persistence.CascadeType.PERSIST;
 import static jakarta.persistence.CascadeType.REMOVE;
 import static jakarta.persistence.FetchType.LAZY;
 
-@Getter
 @Entity
+@Table(name = "POST_POST")
 @NoArgsConstructor
-@Table(name="POST_POST")
+@Getter
 public class Post extends BaseIdAndTime {
     @ManyToOne(fetch = LAZY)
     private Member author;
@@ -40,7 +40,6 @@ public class Post extends BaseIdAndTime {
 
         comments.add(postComment);
 
-        author.increaseActivityScore(1);
         publishEvent(new PostCommentCreatedEvent(new PostCommentDto(postComment)));
 
         return postComment;

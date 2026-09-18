@@ -1,4 +1,3 @@
-
 package com.back.boundedContext.post.out;
 
 import com.back.boundedContext.post.domain.Post;
