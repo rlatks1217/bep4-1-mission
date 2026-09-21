@@ -1,6 +1,7 @@
 package com.back.boundedContext.market.in;
 
 import com.back.boundedContext.market.app.MarketFacade;
+import com.back.shared.market.event.MarketMemberCreatedEvent;
 import com.back.shared.member.event.MemberJoinedEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -19,5 +20,11 @@ public class MarketEventListener {
     @Transactional(propagation = REQUIRES_NEW)
     public void handle(MemberJoinedEvent event) {
         marketFacade.syncMember(event.getMember());
+    }
+
+    @TransactionalEventListener(phase = AFTER_COMMIT)
+    @Transactional(propagation = REQUIRES_NEW)
+    public void handle(MarketMemberCreatedEvent event) {
+        marketFacade.createCart(event.getMember());
     }
 }
