@@ -6,10 +6,11 @@ import com.back.boundedContext.member.out.MemberRepository;
 import com.back.boundedContext.post.domain.PostMember;
 import com.back.shared.member.dto.MemberDto;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class MarketSyncMemberUseCase {
     private final MarketMemberRepository marketMemberRepository;
 
