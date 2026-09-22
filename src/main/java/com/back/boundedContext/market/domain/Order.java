@@ -9,7 +9,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -43,6 +42,20 @@ public class Order extends BaseIdAndTime {
         });
     }
 
+    public OrderDto toDto() {
+        return new OrderDto(
+                getId(),
+                getCreateDate(),
+                getModifyDate(),
+                buyer.getId(),
+                buyer.getNickname(),
+                price,
+                salePrice,
+                requestPaymentDate,
+                paymentDate
+        );
+    }
+
     public void addItem(Product product) {
         OrderItem orderItem = new OrderItem(
                 this,
@@ -58,8 +71,12 @@ public class Order extends BaseIdAndTime {
         salePrice += product.getSalePrice();
     }
 
+    public void completePayment() {
+        paymentDate = LocalDateTime.now();
+    }
+
     public boolean isPaid() {
-        return requestPaymentDate != null;
+        return paymentDate != null;
     }
 
     public boolean isCanceled() {
@@ -75,14 +92,10 @@ public class Order extends BaseIdAndTime {
 
         publishEvent(
                 new MarketOrderPaymentRequestedEvent(
-                        new OrderDto(this),
+                        toDto(),
                         pgPaymentAmount
                 )
         );
-    }
-
-    public void completePayment() {
-        paymentDate = LocalDateTime.now();
     }
 
     public void cancelRequestPayment() {
