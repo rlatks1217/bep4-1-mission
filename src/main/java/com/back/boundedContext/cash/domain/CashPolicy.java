@@ -1,9 +1,9 @@
 package com.back.boundedContext.cash.domain;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class CashPolicy {
     public static int HOLDING_MEMBER_ID;
 

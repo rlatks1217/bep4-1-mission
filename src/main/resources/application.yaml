@@ -15,7 +15,7 @@ spring:
       fail-on-empty-beans: false
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     open-in-view: false
     show-sql: true
     properties:
@@ -40,6 +40,6 @@ custom:
   market:
     toss:
       payments:
-        secretKey: "test_sk_pP2YxJ4K872ZqXvMdy5zrRGZwXLO"
+        secretKey: ${TOSS_PAYMENTS_SECRET_KEY:}
     product:
       payoutRate: 90
