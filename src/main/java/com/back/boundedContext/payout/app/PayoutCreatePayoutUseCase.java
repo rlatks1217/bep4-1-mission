@@ -6,22 +6,23 @@ import com.back.boundedContext.payout.out.PayoutMemberRepository;
 import com.back.boundedContext.payout.out.PayoutRepository;
 import com.back.shared.payout.dto.PayoutMemberDto;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class PayoutCreatePayoutUseCase {
-    private final PayoutMemberRepository payoutMemberRepository;
     private final PayoutRepository payoutRepository;
+    private final PayoutMemberRepository payoutMemberRepository;
 
-    public Payout createPayout(PayoutMemberDto payee) {
-        PayoutMember _payee = payoutMemberRepository.getReferenceById(payee.getId());
+    public Payout createPayout(int payeeId) {
+        PayoutMember _payee = payoutMemberRepository.getReferenceById(payeeId);
 
-        return payoutRepository.save(
+        Payout payout = payoutRepository.save(
                 new Payout(
                         _payee
                 )
         );
+
+        return payout;
     }
 }
